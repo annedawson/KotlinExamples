@@ -18,6 +18,7 @@ enum class Difficulty {
     EASY, MEDIUM, HARD
 }
 
+
 fun main() {
     val question1 = Question("Quoth the raven ___", "nevermore", Difficulty.MEDIUM)
     val question2 = Question<Boolean>("The sky is green. True or false", false, Difficulty.EASY)
