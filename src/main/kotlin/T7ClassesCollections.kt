@@ -1,5 +1,5 @@
 /*
-Date: Tuesday 14th February 2023, 14:51 PT
+Date: Tuesday 14th February 2023, 15:02 PT
 Programmer: Anne Dawson
 Email: anne.dawson@gmail.com
 Purpose: Example Kotlin Code
@@ -18,14 +18,20 @@ data class EventVer7(
 )
 
 // Extension property for Task 7
-val EventVer7.durationOfEvent: Int
+val EventVer7.durationOfEvent1: Int
     get() = duration // Note: Extension properties can't store data, so they must be get-only.
 
 // https://developer.android.com/codelabs/basic-android-kotlin-compose-practice-classes-and-collections?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-compose-unit-3-pathway-1%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-compose-practice-classes-and-collections#9
 // see file: GenericsEnumsDataclassesSingletonobjectExtend.kt
 // https://developer.android.com/codelabs/basic-android-kotlin-compose-generics?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-compose-unit-3-pathway-1%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-compose-generics#5
 
-
+// Extension property for Task 7
+val EventVer7.durationOfEvent2: String
+    get() = if (this.duration < 60) {
+        "short"
+    } else {
+        "long"
+    }
 
 enum class DaypartVer7 {
     MORNING, AFTERNOON, EVENING
@@ -75,7 +81,11 @@ fun main() {
     println("Last event of the day: ${eventsList.last().title}")
 
     // https://kotlinlang.org/docs/extensions.html
-    // using the extension property durationOfEvent defined under the EventVer7 class definition
-    println("Duration of first event of the day: ${eventsList[0].durationOfEvent}")
-    println("Duration of last event of the day: ${eventsList[eventsList.size - 1].durationOfEvent}")
+    // using the extension property durationOfEvent1 defined under the EventVer7 class definition
+    println("Duration of first event of the day: ${eventsList[0].durationOfEvent1}")
+    println("Duration of last event of the day: ${eventsList[eventsList.size - 1].durationOfEvent1}")
+    // using the extension property durationOfEvent2 defined under the EventVer7 class definition
+    println("Duration of first event of the day: ${eventsList[0].durationOfEvent2}")
+    println("Duration of fourth event of the day: ${eventsList[3].durationOfEvent2}")
+
 }
