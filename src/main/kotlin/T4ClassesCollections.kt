@@ -40,7 +40,7 @@ fun main() {
 
     // ********************************************************************
 
-    // create a filtered list from the existing list of CookieVer3 based on truth (predicate)
+    // create a filtered list from the existing list based on truth (predicate)
     val shortEventsList = eventsList.filter {
         it.duration < 50
     }
@@ -50,5 +50,6 @@ fun main() {
         println("Event: ${it.title} Duration:  ${it.duration}")
     }
 
+    println("You have ${shortEventsList.size} short events.")
     // ********************************************************************
 }
